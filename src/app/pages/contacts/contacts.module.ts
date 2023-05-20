@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { NgApexchartsModule } from 'ng-apexcharts';
 import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { NgSelectModule } from '@ng-select/ng-select';
 
@@ -22,7 +21,6 @@ import { ProfileComponent } from './profile/profile.component';
     WidgetModule,
     UIModule,
     NgSelectModule,
-    NgApexchartsModule,
     FormsModule, ReactiveFormsModule ,
     NgbTooltipModule
   ]
