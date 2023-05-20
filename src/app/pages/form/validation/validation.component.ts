@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {UntypedFormBuilder, UntypedFormGroup, Validators} from '@angular/forms';
 import {MustMatch} from './validation.mustmatch';
 
 @Component({
@@ -13,10 +13,10 @@ import {MustMatch} from './validation.mustmatch';
  */
 export class ValidationComponent implements OnInit {
 
-  validationform: FormGroup; // bootstrap validation form
-  tooltipvalidationform: FormGroup; // bootstrap tooltip validation form
-  typeValidationForm: FormGroup; // type validation form
-  rangeValidationForm: FormGroup; // range validation form
+  validationform: UntypedFormGroup; // bootstrap validation form
+  tooltipvalidationform: UntypedFormGroup; // bootstrap tooltip validation form
+  typeValidationForm: UntypedFormGroup; // type validation form
+  rangeValidationForm: UntypedFormGroup; // range validation form
   // bread crumb items
   breadCrumbItems: Array<{}>;
   // Form submition
@@ -25,7 +25,7 @@ export class ValidationComponent implements OnInit {
   typesubmit: boolean;
   rangesubmit: boolean;
 
-  constructor(public formBuilder: FormBuilder) {
+  constructor(public formBuilder: UntypedFormBuilder) {
   }
 
   /**

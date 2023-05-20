@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, UntypedFormArray, Validators } from '@angular/forms';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 import { Usergrid } from './usergrid.model';
@@ -21,12 +21,12 @@ export class UsergridComponent implements OnInit {
 
   userGridData: Usergrid[];
   selected;
-  userForm: FormGroup;
+  userForm: UntypedFormGroup;
   submitted = false;
-  items: FormArray;
+  items: UntypedFormArray;
   // Select2 Dropdown
   selectValue: string[];
-  constructor(private modalService: NgbModal, private formBuilder: FormBuilder) { }
+  constructor(private modalService: NgbModal, private formBuilder: UntypedFormBuilder) { }
 
   ngOnInit() {
     this.selectValue = ['Photoshop', 'illustrator', 'Html', 'Css', 'Php', 'Java', 'Python'];
