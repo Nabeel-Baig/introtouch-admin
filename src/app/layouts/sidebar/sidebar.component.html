@@ -1,0 +1,65 @@
+<!-- ========== Left Sidebar Start ========== -->
+
+<ng-template #contentTemplate>
+
+  <!--- Sidemenu -->
+  <div id="sidebar-menu">
+    <!-- Left Menu Start -->
+    <ul #sideMenu class="metismenu list-unstyled" id="side-menu">
+      <!-- {{menuItems}} -->
+      <ng-container *ngFor="let item of menuItems">
+        <li *ngIf="item.isTitle" class="menu-title">{{ item.label }}</li>
+        <li *ngIf="!item.isTitle && !item.isLayout">
+          <a *ngIf="hasItems(item)" [ngClass]="{'has-arrow': !item.badge, 'has-dropdown': item.badge}" class="is-parent"
+             href="javascript:void(0);">
+            <i *ngIf="item.icon" class="bx {{item.icon}}"></i>
+            <span> {{ item.label }}</span>
+            <span *ngIf="item.badge"
+                  class="badge rounded-pill float-end bg-{{item.badge.variant}}">{{item.badge.text}}</span>
+          </a>
+
+          <a *ngIf="!hasItems(item)" [routerLink]="item.link" class="side-nav-link-ref" routerLinkActive="active">
+            <i *ngIf="item.icon" class="bx {{ item.icon }}"></i>
+            <span> {{ item.label }}</span>
+            <span *ngIf="item.badge"
+                  class="badge rounded-pill bg-{{item.badge.variant}} float-end">{{item.badge.text}}</span>
+          </a>
+
+          <ul *ngIf="hasItems(item)" aria-expanded="false" class="sub-menu">
+            <li *ngFor="let subitem of item.subItems">
+              <a *ngIf="!hasItems(subitem)" [attr.data-parent]="subitem.parentId" [routerLink]="subitem.link"
+                 class="side-nav-link-ref" routerLinkActive="active">
+                {{ subitem.label}}
+              </a>
+              <a *ngIf="hasItems(subitem)" [attr.data-parent]="subitem.parentId" class="side-nav-link-a-ref has-arrow"
+                 href="javascript:void(0);">
+                {{ subitem.label}}
+              </a>
+              <ul *ngIf="hasItems(subitem)" aria-expanded="false" class="sub-menu mm-collapse">
+                <li *ngFor="let subSubitem of subitem.subItems">
+                  <a [attr.data-parent]="subSubitem.parentId" [routerLink]="subSubitem.link" class="side-nav-link-ref"
+                     routerLinkActive="active">
+                    {{ subSubitem.label }}
+                  </a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ng-container>
+    </ul>
+  </div>
+</ng-template>
+<!-- Sidebar -->
+
+<div class="vertical-menu">
+  <ngx-simplebar #componentRef class="h-100">
+    <div *ngIf="!isCondensed">
+      <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+    </div>
+    <div *ngIf="isCondensed">
+      <ng-container *ngTemplateOutlet="contentTemplate"></ng-container>
+    </div>
+  </ngx-simplebar>
+</div>
+<!-- Left Sidebar End -->
