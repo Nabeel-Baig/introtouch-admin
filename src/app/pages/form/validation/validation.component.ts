@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators, FormGroup } from '@angular/forms';
-import { MustMatch } from './validation.mustmatch';
+import {Component, OnInit} from '@angular/core';
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {MustMatch} from './validation.mustmatch';
 
 @Component({
   selector: 'app-validation',
@@ -17,20 +17,48 @@ export class ValidationComponent implements OnInit {
   tooltipvalidationform: FormGroup; // bootstrap tooltip validation form
   typeValidationForm: FormGroup; // type validation form
   rangeValidationForm: FormGroup; // range validation form
-
-  constructor(public formBuilder: FormBuilder) { }
   // bread crumb items
   breadCrumbItems: Array<{}>;
-
   // Form submition
   submit: boolean;
   formsubmit: boolean;
   typesubmit: boolean;
   rangesubmit: boolean;
 
+  constructor(public formBuilder: FormBuilder) {
+  }
+
+  /**
+   * Returns form
+   */
+  get form() {
+    return this.validationform.controls;
+  }
+
+  /**
+   * returns tooltip validation form
+   */
+  get formData() {
+    return this.tooltipvalidationform.controls;
+  }
+
+  /**
+   * Returns the type validation form
+   */
+  get type() {
+    return this.typeValidationForm.controls;
+  }
+
+  /**
+   * Returns the range validation form
+   */
+  get range() {
+    return this.rangeValidationForm.controls;
+  }
+
   ngOnInit() {
 
-    this.breadCrumbItems = [{ label: 'Forms' }, { label: 'Form Validation', active: true }];
+    this.breadCrumbItems = [{label: 'Forms'}, {label: 'Form Validation', active: true}];
 
     /**
      * Bootstrap validation form data
@@ -69,8 +97,8 @@ export class ValidationComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmpwd: ['', Validators.required]
     }, {
-        validator: MustMatch('password', 'confirmpwd'),
-      });
+      validator: MustMatch('password', 'confirmpwd'),
+    });
 
 
     /**
@@ -92,24 +120,10 @@ export class ValidationComponent implements OnInit {
   }
 
   /**
-   * Returns form
-   */
-  get form() {
-    return this.validationform.controls;
-  }
-
-  /**
    * Bootsrap validation form submit method
    */
   validSubmit() {
     this.submit = true;
-  }
-
-  /**
-   * returns tooltip validation form
-   */
-  get formData() {
-    return this.tooltipvalidationform.controls;
   }
 
   /**
@@ -120,24 +134,10 @@ export class ValidationComponent implements OnInit {
   }
 
   /**
-   * Returns the type validation form
-   */
-  get type() {
-    return this.typeValidationForm.controls;
-  }
-
-  /**
    * Type validation form submit data
    */
   typeSubmit() {
     this.typesubmit = true;
-  }
-
-  /**
-   * Returns the range validation form
-   */
-  get range() {
-    return this.rangeValidationForm.controls;
   }
 
   /**
