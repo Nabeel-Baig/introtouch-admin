@@ -2,8 +2,8 @@
 // Owl carousel
 //
 
-@import '~ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
-@import '~ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+@import 'node_modules/ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'node_modules/ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
 
 .navs-carousel {
     .owl-nav {
@@ -17,8 +17,7 @@
         background-color: rgba($primary, 0.25) !important;
         color: $primary !important;
         margin: 4px 8px !important;
-        padding: 4px 5px !important; 
+        padding: 4px 5px !important;
       }
     }
   }
-  

@@ -1,5 +1,5 @@
 import { Component, OnInit, AfterViewInit, ElementRef, ViewChild, Input, OnChanges } from '@angular/core';
-import MetisMenu from 'metismenujs/dist/metismenujs';
+import MetisMenu from 'node_modules/metismenujs/dist/metismenujs';
 import { Router, NavigationEnd } from '@angular/router';
 
 import { HttpClient } from '@angular/common/http';
