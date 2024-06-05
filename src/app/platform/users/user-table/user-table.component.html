@@ -1,0 +1,90 @@
+<div class="container-fluid">
+  <app-page-title [breadcrumbItems]="breadCrumbItems" [title]="title + ' Lists'"></app-page-title>
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title">DivvyTap Users</h4>
+          <p class="card-sub-title">
+            List of all Users
+          </p>
+          <button (click)="createModal()" class="mb-4 btn btn-primary" type="button">Add {{ title }}</button>
+          <div class="row mb-md-2">
+            <div class="col-sm-12 col-md-6">
+              <div class="dataTables_length" id="tickets-table_length"><label
+                class="d-inline-flex align-items-center">Show
+                <select [(ngModel)]="service.pageSize" aria-controls="tickets-table"
+                        class="form-control form-control-sm mx-2"
+                        name="tickets-table_length" name="pageSize">
+                  <option [ngValue]="10">10</option>
+                  <option [ngValue]="25">25</option>
+                  <option [ngValue]="50">50</option>
+                  <option [ngValue]="100">100</option>
+                </select> entries</label></div>
+            </div>
+            <!-- Search -->
+            <div class="col-sm-12 col-md-6">
+              <div class="dataTables_filter text-md-end" id="tickets-table_filter"><label
+                class="d-inline-flex align-items-center">Search:
+                <input [(ngModel)]="service.searchTerm" aria-controls="tickets-table"
+                       class="form-control form-control-sm ms-2"
+                       name="searchTerm" type="text"></label></div>
+            </div>
+            <!-- End search -->
+          </div>
+          <!-- Table -->
+          <div class="table-responsive">
+            <table class="table table-bordered dt-responsive nowrap datatables no-footer dtr-inline"
+                   id="basic-datatable">
+              <thead>
+              <tr>
+                <th (sort)="onSort($event)" sortable="name">Name</th>
+                <th (sort)="onSort($event)" sortable="email">Email</th>
+                <th (sort)="onSort($event)" sortable="mobile">Username</th>
+                <th>Actions</th>
+              </tr>
+              </thead>
+              <tbody *ngFor="let table of tables$ | async;let i=index">
+              <tr>
+                <td>
+                  <ngb-highlight [result]="table.userFirstName" [term]="service.searchTerm"></ngb-highlight>
+                </td>
+                <td>
+                  <ngb-highlight [result]="table.userEmail" [term]="service.searchTerm"></ngb-highlight>
+                </td>
+                <td>
+                  <ngb-highlight [result]="table.userUsername" [term]="service.searchTerm"></ngb-highlight>
+                </td>
+                <td>
+                  <button type="button" (click)="updateModal()" class="dropdown-item"><i
+                    class="mdi mdi-account-edit-outline"></i>Edit</button>
+                  <button type="button" class="dropdown-item"><i class="mdi mdi-delete-outline"></i>Delete</button>
+                </td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- End table -->
+          <div class="row justify-content-md-between align-items-md-center mt-2">
+            <div class="col-sm-12 col-md-5">
+              <div aria-live="polite" class="dataTables_info mb-2" id="tickets-table_info" role="status">Showing
+                {{service.startIndex}} to
+                {{service.endIndex}} of {{service.totalRecords}}
+                entries
+              </div>
+            </div>
+            <!-- Pagination -->
+            <div class="col-sm-12 col-md-5">
+              <div class="text-md-right float-md-end pagination-rounded">
+                <ngb-pagination [(page)]="service.page" [collectionSize]="total$ | async" [pageSize]="service.pageSize">
+                </ngb-pagination>
+              </div>
+            </div>
+            <!-- End Pagination -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

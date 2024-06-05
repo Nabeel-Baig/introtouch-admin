@@ -196,19 +196,19 @@ export const MENU: MenuItem[] = [
                                 id:34 ,
                                 label: 'MENUITEMS.EMAIL.LIST.TEMPLATE.LIST.BASIC',
                                 link: '/email/basic',
-                                parentId:33 
+                                parentId:33
                             },
                             {
                                 id:35 ,
                                 label: 'MENUITEMS.EMAIL.LIST.TEMPLATE.LIST.ALERT',
                                 link: '/email/alert',
-                                parentId:33 
+                                parentId:33
                             },
                             {
                                 id:36 ,
                                 label: 'MENUITEMS.EMAIL.LIST.TEMPLATE.LIST.BILLING',
                                 link: '/email/billing',
-                                parentId:33 
+                                parentId:33
                             }
                         ]
                     }
@@ -488,13 +488,13 @@ export const MENU: MenuItem[] = [
                     {
                         id: 82,
                         label: 'MENUITEMS.TABLES.LIST.BASIC',
-                        link: '/tables/basic',
+                        link: '/users/basic',
                         parentId: 81
                     },
                     {
                         id: 83,
                         label: 'MENUITEMS.TABLES.LIST.ADVANCED',
-                        link: '/tables/advanced',
+                        link: '/users/advanced',
                         parentId: 81
                     }
                 ]
@@ -603,85 +603,85 @@ export const MENU: MenuItem[] = [
                     {
                         id: 101,
                         label: 'MENUITEMS.AUTHENTICATION.LIST.LOGIN',
-                        link: '/pages/login-1',
+                        link: '/platform/login-1',
                         parentId: 100
                     },
                     {
                         id: 102,
                         label: 'MENUITEMS.AUTHENTICATION.LIST.LOGIN2',
-                        link: '/pages/login-2',
+                        link: '/platform/login-2',
                         parentId: 100
                     },
                     {
                         id: 103,
                         label: 'MENUITEMS.AUTHENTICATION.LIST.REGISTER',
-                        link: '/pages/register-1',
+                        link: '/platform/register-1',
                         parentId: 100
                     },
                     {
                         id: 103,
                         label: 'MENUITEMS.AUTHENTICATION.LIST.REGISTER2',
-                        link: '/pages/register-2',
+                        link: '/platform/register-2',
                         parentId: 100
                     },
                     {
                         id: 104,
                         label: 'MENUITEMS.AUTHENTICATION.LIST.RECOVERPWD',
-                        link: '/pages/recoverpwd-1',
+                        link: '/platform/recoverpwd-1',
                         parentId: 100
                     },
                     {
                         id: 105,
                         label: 'MENUITEMS.AUTHENTICATION.LIST.RECOVERPWD2',
-                        link: '/pages/recoverpwd-2',
+                        link: '/platform/recoverpwd-2',
                         parentId: 100
                     },
                     {
                         id: 106,
                         label: 'MENUITEMS.AUTHENTICATION.LIST.LOCKSCREEN',
-                        link: '/pages/lock-screen-1',
+                        link: '/platform/lock-screen-1',
                         parentId: 100
                     },
                     {
                         id: 107,
                         label: 'MENUITEMS.AUTHENTICATION.LIST.LOCKSCREEN2',
-                        link: '/pages/lock-screen-2',
+                        link: '/platform/lock-screen-2',
                         parentId: 100
                     },
                     {
                         id: 108,
                         label: 'MENUITEMS.AUTHENTICATION.LIST.CONFIRMMAIL',
-                        link: '/pages/confirm-mail',
+                        link: '/platform/confirm-mail',
                         parentId: 100
                     },
                     {
                         id: 109,
                         label: 'MENUITEMS.AUTHENTICATION.LIST.CONFIRMMAIL2',
-                        link: '/pages/confirm-mail-2',
+                        link: '/platform/confirm-mail-2',
                         parentId: 100
                     },
                     {
                         id: 110,
                         label: 'MENUITEMS.AUTHENTICATION.LIST.EMAILVERIFICATION',
-                        link: '/pages/email-verification',
+                        link: '/platform/email-verification',
                         parentId: 100
                     },
                     {
                         id: 111,
                         label: 'MENUITEMS.AUTHENTICATION.LIST.EMAILVERIFICATION2',
-                        link: '/pages/email-verification-2',
+                        link: '/platform/email-verification-2',
                         parentId: 100
                     },
                     {
                         id: 112,
                         label: 'MENUITEMS.AUTHENTICATION.LIST.TWOSTEPVERIFICATION',
-                        link: '/pages/two-step-verification',
+                        link: '/platform/two-step-verification',
                         parentId: 100
                     },
                     {
                         id: 113,
                         label: 'MENUITEMS.AUTHENTICATION.LIST.TWOSTEPVERIFICATION2',
-                        link: '/pages/two-step-verification-2',
+                        link: '/platform/two-step-verification-2',
                         parentId: 100
                     }
                 ]
@@ -694,49 +694,49 @@ export const MENU: MenuItem[] = [
                     {
                         id: 115,
                         label: 'MENUITEMS.UTILITY.LIST.STARTER',
-                        link: '/pages/starter',
+                        link: '/platform/starter',
                         parentId: 114
                     },
                     {
                         id: 116,
                         label: 'MENUITEMS.UTILITY.LIST.MAINTENANCE',
-                        link: '/pages/maintenance',
+                        link: '/platform/maintenance',
                         parentId: 114
                     },
                     {
                         id: 117,
                         label: 'Coming Soon',
-                        link: '/pages/coming-soon',
+                        link: '/platform/coming-soon',
                         parentId: 114
                     },
                     {
                         id: 118,
                         label: 'MENUITEMS.UTILITY.LIST.TIMELINE',
-                        link: '/pages/timeline',
+                        link: '/platform/timeline',
                         parentId: 114
                     },
                     {
                         id: 119,
                         label: 'MENUITEMS.UTILITY.LIST.FAQS',
-                        link: '/pages/faqs',
+                        link: '/platform/faqs',
                         parentId: 114
                     },
                     {
                         id: 120,
                         label: 'MENUITEMS.UTILITY.LIST.PRICING',
-                        link: '/pages/pricing',
+                        link: '/platform/pricing',
                         parentId: 114
                     },
                     {
                         id: 121,
                         label: 'MENUITEMS.UTILITY.LIST.ERROR404',
-                        link: '/pages/404',
+                        link: '/platform/404',
                         parentId: 114
                     },
                     {
                         id: 122,
                         label: 'MENUITEMS.UTILITY.LIST.ERROR500',
-                        link: '/pages/500',
+                        link: '/platform/500',
                         parentId: 114
                     },
                 ]

@@ -1,0 +1,67 @@
+<app-modals [headerTitle]="'Add User'">
+  <div content>
+    <div class="card">
+      <div class="card-body">
+        <form (ngSubmit)="formSubmit()" [formGroup]="validationForm">
+          <div class="mb-3">
+            <label class="form-label">First Name</label>
+            <input type="text" class="form-control" formControlName="userFirstName"
+                   [ngClass]="{'is-invalid': formSubmit && type.userFirstName.errors}" placeholder="First Name" />
+            <div *ngIf="formSubmit && type.userFirstName.errors" class="invalid-feedback">
+              <span *ngIf="type.userFirstName.errors.required">This value is required.</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">Last Name</label>
+            <input type="text" class="form-control" formControlName="userLastName"
+                   [ngClass]="{'is-invalid': formSubmit && type.userLastName.errors}" placeholder="Last Name" />
+            <div *ngIf="formSubmit && type.userLastName.errors" class="invalid-feedback">
+              <span *ngIf="type.userLastName.errors.required">This value is required.</span>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label">E-Mail</label>
+            <div>
+              <input type="email" class="form-control" formControlName="userEmail"
+                     [ngClass]="{'is-invalid': formSubmit && type.userEmail.errors}" placeholder="Enter a valid e-mail" />
+              <div *ngIf="formSubmit && type.userEmail.errors" class="invalid-feedback">
+                <span *ngIf="type.userEmail.errors.required">This value is required.</span>
+                <span *ngIf="type.userEmail.errors.pattern">This value should be a valid email.</span>
+              </div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label class="form-label">Password</label>
+            <div>
+              <input type="password" class="form-control" placeholder="Password" formControlName="userPassword"
+                     [ngClass]="{'is-invalid': formSubmit && type.userPassword.errors}" />
+              <div *ngIf="formSubmit && type.userPassword.errors" class="invalid-feedback">
+                <span *ngIf="type.userPassword.errors.required">This value is required.</span>
+                <span *ngIf="type.userPassword.errors.minlength">Password must be at least 6
+                    characters.</span>
+              </div>
+            </div>
+            <div class="mt-2">
+              <input type="password" class="form-control" placeholder="Re-Type Password" formControlName="confirmpwd"
+                     [ngClass]="{'is-invalid': formSubmit && type.confirmpwd.errors}" />
+              <div *ngIf="formSubmit && type.confirmpwd.errors" class="invalid-feedback">
+                <span *ngIf="type.confirmpwd.errors.required">This value is required.</span>
+                <span *ngIf="type.confirmpwd.errors.mustMatch">This value should be the same.</span>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex flex-wrap gap-2">
+            <button type="submit" class="btn btn-primary waves-effect waves-light">
+              Submit
+            </button>
+            <button type="reset" class="btn btn-secondary waves-effect">
+              Cancel
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</app-modals>

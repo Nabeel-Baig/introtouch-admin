@@ -4,17 +4,7 @@
 
 export const environment = {
   production: false,
-  defaultauth: 'fackbackend',
-  firebaseConfig: {
-    apiKey: '',
-    authDomain: '',
-    databaseURL: '',
-    projectId: '',
-    storageBucket: '',
-    messagingSenderId: '',
-    appId: '',
-    measurementId: ''
-  }
+  apiUrl: 'https://mt8nqfp7n2.execute-api.us-east-2.amazonaws.com',
 };
 
 

@@ -1,0 +1,10 @@
+<div class="modal-header">
+  <h5 class="modal-title mt-0">{{ headerTitle }}</h5>
+  <button (click)="closeModal()" aria-hidden="true" class="btn-close" type="button"></button>
+</div>
+<div class="modal-body">
+  <ng-content select="[content]"></ng-content>
+</div>
+<div class="modal-footer">
+  <button (click)="closeModal()" class="btn btn-secondary" type="button">Close</button>
+</div>

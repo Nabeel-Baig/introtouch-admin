@@ -1,0 +1,273 @@
+<div class="container-fluid">
+  <app-page-title [breadcrumbItems]="breadCrumbItems" title="Modals"></app-page-title>
+
+  <div class="row">
+    <div class="col-12">
+      <div class="card">
+        <div class="card-body">
+
+          <h4 class="card-title">Modals Examples</h4>
+          <p class="card-title-desc">Modals are streamlined, but flexible
+            dialog prompts powered by JavaScript. They support a number of use cases
+            from user notification to completely custom content and feature a
+            handful of helpful subcomponents, sizes, and more.</p>
+
+          <div class="modal bs-example-modal" role="dialog" tabindex="-1">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title mt-0">Modal title</h5>
+                  <button aria-label="Close" class="btn-close" data-dismiss="modal" type="button">
+                    <span aria-hidden="true"></span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>One fine body&hellip;</p>
+                </div>
+                <div class="modal-footer">
+                  <button class="btn btn-primary" type="button">Save changes</button>
+                  <button class="btn btn-secondary" data-dismiss="modal" type="button">Close</button>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
+
+          <div class="row">
+
+            <div class="col-sm-6 col-md-4 col-xl-3">
+              <div class="my-4 text-center">
+                <p class="text-muted">Standard modal</p>
+                <button (click)="openModal(content)" class="btn btn-primary" type="button">Standard
+                  modal
+                </button>
+              </div>
+
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-xl-3">
+              <div class="my-4 text-center">
+                <p class="text-muted">Extra large modal</p>
+                <!-- Extra Large modal -->
+                <button (click)="extraLarge(exlargeModal)" class="btn btn-primary" type="button">Extra large
+                  modal
+                </button>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-xl-3">
+              <div class="my-4 text-center">
+                <p class="text-muted">Large modal</p>
+                <!-- Large modal -->
+                <button (click)="largeModal(largeDataModal)" class="btn btn-primary" type="button">Large modal</button>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-xl-3">
+              <div class="my-4 text-center">
+                <p class="text-muted">Small modal</p>
+                <!-- Small modal -->
+                <button (click)="smallModal(smallDataModal)" class="btn btn-primary" type="button">Small
+                  modal
+                </button>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-xl-3">
+              <div class="my-4 text-center">
+                <p class="text-muted">Center modal</p>
+                <!-- Center modal -->
+                <button (click)="centerModal(centerDataModal)" class="btn btn-primary" type="button">Center
+                  modal
+                </button>
+              </div>
+            </div>
+
+            <div class="col-sm-6 col-md-4 col-xl-3">
+              <div class="my-4 text-center">
+                <p class="text-muted">Scrollable modal</p>
+                <!-- Scrollable modal -->
+                <button (click)="scrollModal(scrollDataModal)" class="btn btn-primary" type="button">Scrollable
+                  modal
+                </button>
+              </div>
+            </div>
+          </div> <!-- end row -->
+
+          <!-- end row -->
+        </div>
+      </div>
+    </div>
+  </div><!-- end row -->
+</div>
+
+<!-- Standard Modal -->
+<ng-template #content let-modal role="document">
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Modal Heading</h5>
+    <button (click)="modal.dismiss('Cross click')" aria-hidden="true" class="btn-close" type="button"></button>
+  </div>
+  <div class="modal-body">
+    <h5>Overflowing text to show scroll behavior</h5>
+    <p>Cras mattis consectetur purus sit amet fermentum.
+      Cras justo odio, dapibus ac facilisis in,
+      egestas eget quam. Morbi leo risus, porta ac
+      consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque
+      nisl consectetur et. Vivamus sagittis lacus vel
+      augue laoreet rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur.
+      Praesent commodo cursus magna, vel scelerisque
+      nisl consectetur et. Donec sed odio dui. Donec
+      ullamcorper nulla non metus auctor
+      fringilla.</p>
+  </div>
+  <div class="modal-footer">
+    <button (click)="modal.close('Close click')" class="btn btn-light" type="button">Close</button>
+    <button class="btn btn-primary" type="button">Save changes</button>
+  </div>
+</ng-template>
+
+<!-- Extra Large Modal -->
+<ng-template #exlargeModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Extra large modal </h5>
+    <button (click)="modal.dismiss('Close click')" aria-label="Close" class="btn-close" type="button">
+
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Cras mattis consectetur purus sit amet fermentum.
+      Cras justo odio, dapibus ac facilisis in,
+      egestas eget quam. Morbi leo risus, porta ac
+      consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque
+      nisl consectetur et. Vivamus sagittis lacus vel
+      augue laoreet rutrum faucibus dolor auctor.</p>
+    <p class="mb-0">Aenean lacinia bibendum nulla sed consectetur.
+      Praesent commodo cursus magna, vel scelerisque
+      nisl consectetur et. Donec sed odio dui. Donec
+      ullamcorper nulla non metus auctor
+      fringilla.</p>
+  </div>
+</ng-template>
+
+<!-- Large Modal -->
+<ng-template #largeDataModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Large modal</h5>
+    <button (click)="modal.dismiss('Cross click')" aria-hidden="true" class="btn-close" type="button"></button>
+  </div>
+  <div class="modal-body">
+    <p>Cras mattis consectetur purus sit amet fermentum.
+      Cras justo odio, dapibus ac facilisis in,
+      egestas eget quam. Morbi leo risus, porta ac
+      consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque
+      nisl consectetur et. Vivamus sagittis lacus vel
+      augue laoreet rutrum faucibus dolor auctor.</p>
+    <p class="mb-0">Aenean lacinia bibendum nulla sed consectetur.
+      Praesent commodo cursus magna, vel scelerisque
+      nisl consectetur et. Donec sed odio dui. Donec
+      ullamcorper nulla non metus auctor
+      fringilla.</p>
+  </div>
+</ng-template>
+
+<!-- Small Modal -->
+<ng-template #smallDataModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Small modal</h5>
+    <button (click)="modal.dismiss('Cross click')" aria-hidden="true" class="btn-close" type="button"></button>
+  </div>
+  <div class="modal-body">
+    <p>Cras mattis consectetur purus sit amet fermentum.
+      Cras justo odio, dapibus ac facilisis in,
+      egestas eget quam. Morbi leo risus, porta ac
+      consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque
+      nisl consectetur et. Vivamus sagittis lacus vel
+      augue laoreet rutrum faucibus dolor auctor.</p>
+    <p class="mb-0">Aenean lacinia bibendum nulla sed consectetur.
+      Praesent commodo cursus magna, vel scelerisque
+      nisl consectetur et. Donec sed odio dui. Donec
+      ullamcorper nulla non metus auctor
+      fringilla.</p>
+  </div>
+</ng-template>
+
+<!-- Center Modal -->
+<ng-template #centerDataModal let-modals>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Center modal</h5>
+    <button (click)="modals.dismiss('Cross click')" aria-hidden="true" class="btn-close" type="button"></button>
+  </div>
+  <div class="modal-body">
+    <p>Cras mattis consectetur purus sit amet fermentum.
+      Cras justo odio, dapibus ac facilisis in,
+      egestas eget quam. Morbi leo risus, porta ac
+      consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque
+      nisl consectetur et. Vivamus sagittis lacus vel
+      augue laoreet rutrum faucibus dolor auctor.</p>
+    <p class="mb-0">Aenean lacinia bibendum nulla sed consectetur.
+      Praesent commodo cursus magna, vel scelerisque
+      nisl consectetur et. Donec sed odio dui. Donec
+      ullamcorper nulla non metus auctor
+      fringilla.</p>
+  </div>
+  <div class="modal-footer">
+    <button (click)="modals.close('Close click')" class="btn btn-secondary" type="button">Close</button>
+    <button class="btn btn-primary" type="button">Save changes</button>
+  </div>
+</ng-template>
+
+<!-- Scrollable Modal -->
+<ng-template #scrollDataModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title mt-0">Scrollable Modal</h5>
+    <button (click)="modal.dismiss('Cross click')" aria-label="Close" class="btn-close" type="button">
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas
+      eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue
+      laoreet rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl
+      consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas
+      eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue
+      laoreet rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl
+      consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas
+      eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue
+      laoreet rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl
+      consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas
+      eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue
+      laoreet rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl
+      consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas
+      eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue
+      laoreet rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl
+      consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+    <p>Cras mattis consectetur purus sit amet fermentum. Cras justo odio, dapibus ac facilisis in, egestas
+      eget quam. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.</p>
+    <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Vivamus sagittis lacus vel augue
+      laoreet rutrum faucibus dolor auctor.</p>
+    <p>Aenean lacinia bibendum nulla sed consectetur. Praesent commodo cursus magna, vel scelerisque nisl
+      consectetur et. Donec sed odio dui. Donec ullamcorper nulla non metus auctor fringilla.</p>
+  </div>
+  <div class="modal-footer">
+    <button (click)="modal.close('Close click')" class="btn btn-secondary" type="button">Close</button>
+    <button class="btn btn-primary" type="button">Save changes</button>
+  </div>
+</ng-template>
