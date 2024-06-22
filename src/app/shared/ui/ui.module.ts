@@ -7,8 +7,9 @@ import { NgbCollapseModule, NgbDatepickerModule, NgbTimepickerModule, NgbDropdow
 import { PagetitleComponent } from './pagetitle/pagetitle.component';
 import { LoaderComponent } from './loader/loader.component';
 import { ModalsComponent } from './modals/modals.component';
+import { ConfirmModalComponent } from './confirm-modal/confirm-modal.component';
 @NgModule({
-  declarations: [PagetitleComponent,  LoaderComponent, ModalsComponent],
+  declarations: [PagetitleComponent,  LoaderComponent, ModalsComponent, ConfirmModalComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -17,6 +18,6 @@ import { ModalsComponent } from './modals/modals.component';
     NgbTimepickerModule,
     NgbDropdownModule
   ],
-    exports: [PagetitleComponent, LoaderComponent, ModalsComponent]
+    exports: [PagetitleComponent, LoaderComponent, ModalsComponent, ConfirmModalComponent]
 })
 export class UIModule { }

@@ -56,14 +56,15 @@
                   <ngb-highlight [result]="table.userUsername" [term]="service.searchTerm"></ngb-highlight>
                 </td>
                 <td>
-                  <button type="button" (click)="updateModal()" class="dropdown-item"><i
+                  <button type="button" (click)="updateModal(table)" class="dropdown-item"><i
                     class="mdi mdi-account-edit-outline"></i>Edit</button>
-                  <button type="button" class="dropdown-item"><i class="mdi mdi-delete-outline"></i>Delete</button>
+                  <button type="button" class="dropdown-item" (click)="deleteModal(table)"><i class="mdi mdi-delete-outline"></i>Delete</button>
                 </td>
               </tr>
               </tbody>
             </table>
           </div>
+          
           <!-- End table -->
           <div class="row justify-content-md-between align-items-md-center mt-2">
             <div class="col-sm-12 col-md-5">

@@ -18,6 +18,7 @@ import { AppComponent } from './app.component';
 
 import { ErrorInterceptor } from './core/helpers/error.interceptor';
 import { JwtInterceptor } from './core/helpers/jwt.interceptor';
+import { UserService } from './platform/users/services/user.service';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { JwtInterceptor } from './core/helpers/jwt.interceptor';
   ],
   bootstrap: [AppComponent],
   providers: [
+    UserService,
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
   ],

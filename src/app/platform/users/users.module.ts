@@ -16,6 +16,7 @@ import {AdvancedSortableDirective} from './services/advanced-sortable.directive'
 import {UserTableComponent} from './user-table/user-table.component';
 import { UserCreateComponent } from './user-create/user-create.component';
 import { UserUpdateComponent } from './user-update/user-update.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 @NgModule({
@@ -30,8 +31,10 @@ import { UserUpdateComponent } from './user-update/user-update.component';
     NgbDropdownModule,
     FormsModule,
     ReactiveFormsModule,
-    Ng2SmartTableModule
-  ]
+    Ng2SmartTableModule,
+    SharedModule
+  ],
+  entryComponents: [ UserUpdateComponent ]
 })
 export class UsersModule {
 }
