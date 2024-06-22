@@ -237,19 +237,12 @@ export class UserService {
     this.http.patch(this.url + "/user/update/" + userId, user).subscribe(data=> console.log(data))
   }
 
-  public totalVal: number = 10;
-
-  private totalValSubject: BehaviorSubject<number> = new BehaviorSubject<number>(10);
-  public totalVal$: Observable<number> = this.totalValSubject.asObservable();
   public deleteUser(userId: string) {
     let fakeResponse = [1,2,3]
-    //return this.http.delete(this.url + "/user/delete/" + userId)
-    return of(fakeResponse).pipe(map(() => {
+    return this.http.delete(this.url + "/user/delete/" + userId).pipe(map(() => {
       const userList = this._tables$.getValue();
       const updatedList = userList.filter(x => x.userUuid != userId);
       this._tables$.next(updatedList);
-      this.totalVal+=1;
-      this.totalValSubject.next(11);
     })); 
   }
 }

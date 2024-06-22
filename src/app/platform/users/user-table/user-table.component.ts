@@ -76,7 +76,6 @@ export class UserTableComponent implements OnInit {
     modalRef.componentInstance.user = user;
     modalRef.componentInstance.passEntry.subscribe((data)=> {
     modalRef.close();
-    console.log(data);
     this.tables$ = this.tables$.pipe(map(tables => tables.filter(x => x.userUuid != data.userUuid)));
     this.total$ = this.total$.pipe(map(value => value - 1));
     });
