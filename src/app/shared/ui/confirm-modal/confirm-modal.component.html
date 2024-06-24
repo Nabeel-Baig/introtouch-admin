@@ -1,0 +1,19 @@
+<div class="modal-header">
+    <h5 class="modal-title mt-0">Delete User</h5>
+    <button (click)="modal.dismiss('Cross click')" aria-hidden="true" class="btn-close" type="button"></button>
+  </div>
+  <div class="modal-body">
+    <p class="mb-0">Are you sure you want to delete User?</p>
+    <!-- <p>Praesent commodo cursus magna, vel scelerisque
+      nisl consectetur et. Vivamus sagittis lacus vel
+      augue laoreet rutrum faucibus dolor auctor.</p>
+    <p class="mb-0">Aenean lacinia bibendum nulla sed consectetur.
+      Praesent commodo cursus magna, vel scelerisque
+      nisl consectetur et. Donec sed odio dui. Donec
+      ullamcorper nulla non metus auctor
+      fringilla.</p> -->
+  </div>
+  <div class="modal-footer">
+    <button (click)="modal.close('Close click')" class="btn btn-secondary" type="button">Close</button>
+    <button class="btn btn-danger" (click)="deleteUser()" type="button">Delete</button>
+  </div>

@@ -7,7 +7,7 @@ import {NgbActiveModal} from "@ng-bootstrap/ng-bootstrap";
   styleUrls: ['./modals.component.scss']
 })
 export class ModalsComponent {
-
+  @Input() closeButtonVisible: boolean = true;
   constructor(public modal: NgbActiveModal) {
   }
 

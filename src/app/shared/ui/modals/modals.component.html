@@ -5,6 +5,6 @@
 <div class="modal-body">
   <ng-content select="[content]"></ng-content>
 </div>
-<div class="modal-footer">
+<div class="modal-footer" *ngIf="[closeButtonVisible]">
   <button (click)="closeModal()" class="btn btn-secondary" type="button">Close</button>
 </div>

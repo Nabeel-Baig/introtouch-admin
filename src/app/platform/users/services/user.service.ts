@@ -1,9 +1,10 @@
 import { Injectable } from "@angular/core";
-import { BehaviorSubject, Observable, Subject } from "rxjs";
+import { BehaviorSubject, Observable, Subject, of } from "rxjs";
 import { debounceTime, delay, map, switchMap, tap } from "rxjs/operators";
 import { SearchResult, User } from "../models/user.model";
 import { SortDirection } from "./advanced-sortable.directive";
 import { HttpClient } from "@angular/common/http";
+import { environment } from "src/environments/environment";
 
 interface State {
   page: number;
@@ -53,6 +54,7 @@ function matches(tables: User, term: string = "") {
 export class UserService {
   // tslint:disable-next-line: variable-name
   private _search$ = new Subject<void>();
+  private url: string = environment.apiUrl;
   private users: User[];
   // tslint:disable-next-line: variable-name
   private _state: State = {
@@ -231,4 +233,16 @@ export class UserService {
       );
   }
 
+  public updateUser(userId: string ,user:User) {
+    this.http.patch(this.url + "/user/update/" + userId, user).subscribe(data=> console.log(data))
+  }
+
+  public deleteUser(userId: string) {
+    let fakeResponse = [1,2,3]
+    return this.http.delete(this.url + "/user/delete/" + userId).pipe(map(() => {
+      const userList = this._tables$.getValue();
+      const updatedList = userList.filter(x => x.userUuid != userId);
+      this._tables$.next(updatedList);
+    })); 
+  }
 }
