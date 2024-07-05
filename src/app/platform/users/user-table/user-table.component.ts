@@ -40,8 +40,7 @@ export class UserTableComponent implements OnInit {
     public service: UserService,
     private modalService: NgbModal,
   ) {
-    this.tables$ = service.tables$;
-    this.total$ = service.total$;
+    
   }
 
   ngOnInit() {
@@ -49,6 +48,9 @@ export class UserTableComponent implements OnInit {
       { label: "Users" },
       { label: "Users Lists", active: true },
     ];
+    this.tables$ = this.service.tables$;
+    this.total$ = this.service.total$;
+
   }
 
   onSort({ column, direction }: SortEvent) {
@@ -64,11 +66,16 @@ export class UserTableComponent implements OnInit {
 
   createModal() {
     this.modalService.open(UserCreateComponent, { centered: true });
-  }
+  } 
 
   updateModal(user: User) {
     const modalRef = this.modalService.open(UserUpdateComponent, { centered: true });
     modalRef.componentInstance.user = user;
+    modalRef.componentInstance.passEntry.subscribe((data)=> {
+      console.log(this.service.tables$);
+      this.tables$ = data;
+      modalRef.close();
+    })
   }
 
   deleteModal(user: User) {
