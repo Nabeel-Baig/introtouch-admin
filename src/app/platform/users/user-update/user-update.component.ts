@@ -48,8 +48,6 @@ export class UserUpdateComponent {
 
   private updateUser() {
     this.userService.updateUser(this.user.userUuid,this.validationForm.value);
-    console.log(this.validationForm.value);
-    console.log(this.userService.tables$);
     this.passEntry.emit(this.userService.tables$);
   }
 }

@@ -72,7 +72,6 @@ export class UserTableComponent implements OnInit {
     const modalRef = this.modalService.open(UserUpdateComponent, { centered: true });
     modalRef.componentInstance.user = user;
     modalRef.componentInstance.passEntry.subscribe((data)=> {
-      console.log(this.service.tables$);
       this.tables$ = data;
       modalRef.close();
     })
