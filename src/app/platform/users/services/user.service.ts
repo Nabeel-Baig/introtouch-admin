@@ -231,14 +231,17 @@ export class UserService {
           return { tables: users, total }; // Adjust to match SearchResult structure
         })
       );
-  }
+  } 
 
   public updateUser(userId: string ,user:User) {
-    this.http.patch(this.url + "/user/update/" + userId, user).subscribe(data=> console.log(data))
+    this.http.patch(this.url + "/user/update/" + userId, user).subscribe((data) => {
+      const userList = this._tables$.getValue();
+      userList[userList.findIndex(el => el.userUuid === userId)] = data["data"].user;
+      this._tables$.next(userList); // Subject is updating
+    })
   }
 
   public deleteUser(userId: string) {
-    let fakeResponse = [1,2,3]
     return this.http.delete(this.url + "/user/delete/" + userId).pipe(map(() => {
       const userList = this._tables$.getValue();
       const updatedList = userList.filter(x => x.userUuid != userId);

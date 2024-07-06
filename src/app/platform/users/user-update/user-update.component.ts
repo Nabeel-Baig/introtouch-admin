@@ -1,4 +1,4 @@
-import {Component, Input} from '@angular/core';
+import {Component, EventEmitter, Input, Output} from '@angular/core';
 import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 import {MustMatch} from "../../form/validation/validation.mustmatch";
 import { User } from '../models/user.model';
@@ -13,6 +13,7 @@ export class UserUpdateComponent {
   validationForm: UntypedFormGroup; // type validation form
   formsubmit: boolean;
   @Input() public user: User;
+  @Output() passEntry: EventEmitter<any> = new EventEmitter();
 
   constructor(public formBuilder: UntypedFormBuilder, public userService: UserService) {
   }
@@ -34,6 +35,7 @@ export class UserUpdateComponent {
   formSubmit() {
     this.formsubmit = true;
     this.updateUser();
+
   }
 
   private setUserForm(user: User) {
@@ -46,5 +48,6 @@ export class UserUpdateComponent {
 
   private updateUser() {
     this.userService.updateUser(this.user.userUuid,this.validationForm.value);
+    this.passEntry.emit(this.userService.tables$);
   }
 }
