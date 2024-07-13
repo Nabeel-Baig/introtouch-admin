@@ -40,7 +40,7 @@ export class UserTableComponent implements OnInit {
     public service: UserService,
     private modalService: NgbModal,
   ) {
-    
+
   }
 
   ngOnInit() {
@@ -63,10 +63,6 @@ export class UserTableComponent implements OnInit {
     this.service.sortColumn = column;
     this.service.sortDirection = direction;
   }
-
-  createModal() {
-    this.modalService.open(UserCreateComponent, { centered: true });
-  } 
 
   updateModal(user: User) {
     const modalRef = this.modalService.open(UserUpdateComponent, { centered: true });

@@ -15,5 +15,5 @@
   </div>
   <div class="modal-footer">
     <button (click)="modal.close('Close click')" class="btn btn-secondary" type="button">Close</button>
-    <button class="btn btn-danger" (click)="deleteUser()" type="button">Delete</button>
+    <button class="btn btn-danger" (click)="deleteUser()" [disabled]="deleteButton" type="button">Delete</button>
   </div>

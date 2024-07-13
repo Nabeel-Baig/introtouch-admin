@@ -37,14 +37,36 @@ function sort(tables: User[], column: string, direction: string): User[] {
 }
 
 /**
+ * Normalize string by removing extra spaces and converting to lowercase
+ * @param str The input string
+ */
+function normalizeString(str: string): string {
+  return str.toLowerCase().replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Check if all terms in the search are present in the target string
+ * @param target The target string to search within
+ * @param terms The search terms
+ */
+function containsAllTerms(target: string, terms: string[]): boolean {
+  return terms.every(term => target.includes(term));
+}
+
+/**
  * Table Data Match with Search input
  * @param tables Table field value fetch
  * @param term Search the value
  */
-function matches(tables: User, term: string = "") {
+function matches(tables: User, term: string = ""): boolean {
+  const normalizedTerm = normalizeString(term);
+  const searchTerms = normalizedTerm.split(' ');
+
   return (
-    tables.userFirstName.toLowerCase().includes(term) ||
-    tables.userEmail.toLowerCase().includes(term)
+    containsAllTerms(normalizeString(tables.userFirstName), searchTerms) ||
+    containsAllTerms(normalizeString(tables.userEmail), searchTerms) ||
+    containsAllTerms(normalizeString(tables.userLastName), searchTerms) ||
+    containsAllTerms(normalizeString(tables.userUsername), searchTerms)
   );
 }
 
@@ -202,19 +224,22 @@ export class UserService {
    * Search Method
    */
   private _search(): Observable<SearchResult> {
-    const { sortColumn, sortDirection, pageSize, page, searchTerm } = this._state;
+    const { sortColumn, sortDirection, pageSize, page, searchTerm } =
+      this._state;
 
     return this.http
-      .get<{ data: { users: User[] } }>("https://mt8nqfp7n2.execute-api.us-east-2.amazonaws.com/user/list")
+      .get<{
+        data: { users: User[] };
+      }>("https://mt8nqfp7n2.execute-api.us-east-2.amazonaws.com/user/list")
       .pipe(
-        map(response => {
+        map((response) => {
           const usersData = response.data.users; // Correctly access the nested structure
 
           // 1. sort
           let users: User[] = sort(usersData, sortColumn, sortDirection);
 
           // 2. filter
-          users = users.filter(user => matches(user, searchTerm));
+          users = users.filter((user) => matches(user, searchTerm));
           const total: number = users.length;
 
           // 3. paginate
@@ -229,23 +254,28 @@ export class UserService {
           // Assuming SearchResult expects a property named 'tables'
           // and you've mapped User[] to Table[] appropriately elsewhere
           return { tables: users, total }; // Adjust to match SearchResult structure
-        })
+        }),
       );
-  } 
+  }
 
-  public updateUser(userId: string ,user:User) {
-    this.http.patch(this.url + "/user/update/" + userId, user).subscribe((data) => {
-      const userList = this._tables$.getValue();
-      userList[userList.findIndex(el => el.userUuid === userId)] = data["data"].user;
-      this._tables$.next(userList); // Subject is updating
-    })
+  public updateUser(userId: string, user: User) {
+    this.http
+      .patch(this.url + "/user/update/" + userId, user)
+      .subscribe((data) => {
+        const userList = this._tables$.getValue();
+        userList[userList.findIndex((el) => el.userUuid === userId)] =
+          data["data"].user;
+        this._tables$.next(userList); // Subject is updating
+      });
   }
 
   public deleteUser(userId: string) {
-    return this.http.delete(this.url + "/user/delete/" + userId).pipe(map(() => {
-      const userList = this._tables$.getValue();
-      const updatedList = userList.filter(x => x.userUuid != userId);
-      this._tables$.next(updatedList);
-    })); 
+    return this.http.delete(this.url + "/user/delete/" + userId).pipe(
+      map(() => {
+        const userList = this._tables$.getValue();
+        const updatedList = userList.filter((x) => x.userUuid != userId);
+        this._tables$.next(updatedList);
+      }),
+    );
   }
 }

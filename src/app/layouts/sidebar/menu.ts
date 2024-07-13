@@ -15,7 +15,7 @@ export const MENU: MenuItem[] = [
     icon: 'bx-bx-user',
     link: '/users/lists',
   },
-  {
+  /*{
     label: 'Company Admin',
     isTitle: true
   },
@@ -44,6 +44,6 @@ export const MENU: MenuItem[] = [
         ]
       },
     ]
-  }
+  }*/
 ];
 

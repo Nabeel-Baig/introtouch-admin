@@ -13,9 +13,9 @@ export class AuthService {
   constructor(private http: HttpClient) {}
 
   login(loginData: LoginRequest): Observable<any> {
-    const formData: FormData = new FormData();
+    /*const formData: FormData = new FormData();
     formData.append("userEmail", loginData.userEmail);
-    formData.append("userPassword", loginData.userPassword);
+    formData.append("userPassword", loginData.userPassword);*/
 
     return this.http.post(`${this.url}/auth/self/login`, loginData).pipe(
       map((value) => {

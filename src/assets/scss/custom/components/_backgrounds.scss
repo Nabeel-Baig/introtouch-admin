@@ -1,4 +1,4 @@
-// 
+//
 // backgrounds.scss
 //
 
@@ -7,7 +7,7 @@
 $value in $theme-colors {
     .bg-#{$color} {
         &.bg-soft{
-            background-color: rgba(($value), 0.25) !important;
+            background-color: rgba(($value),1) !important;
 
         }
     }
